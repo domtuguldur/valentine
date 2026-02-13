@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day 💕</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==================== CSS Custom Properties ==================== */
+        :root {
+            --hot-pink: #FF69B4;
+            --deep-pink: #FF1493;
+            --magenta: #FF00FF;
+            --rose: #FF007F;
+            --light-pink: #FFB6C1;
+            --lavender: #E6E6FA;
+            --white: #FFFFFF;
+            --gold: #FFD700;
+        }
+
+        /* ==================== Global Styles ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, var(--deep-pink), var(--magenta), var(--rose), var(--hot-pink));
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: var(--white);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ==================== Animated Gradient Background ==================== */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ==================== Welcome Modal ==================== */
+        #welcomeModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--hot-pink), var(--rose), var(--magenta));
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+
+        #welcomeModal.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .modal-content {
+            text-align: center;
+            z-index: 10000;
+            animation: modalFadeIn 1s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-content h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 105, 180, 0.6);
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 105, 180, 0.9);
+            }
+        }
+
+        #beginButton {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(135deg, var(--white), var(--light-pink));
+            color: var(--deep-pink);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        #beginButton:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.6);
+        }
+
+        /* ==================== Sections ==================== */
+        section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* ==================== Hero Section ==================== */
+        .hero {
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            animation: bounceIn 1s ease-out;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(-100px);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulsing-heart {
+            font-size: 8rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px var(--rose));
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.1);
+            }
+            50% {
+                transform: scale(1);
+            }
+            75% {
+                transform: scale(1.15);
+            }
+        }
+
+        .typewriter {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            min-height: 3rem;
+            display: inline-block;
+            border-right: 3px solid var(--white);
+            padding-right: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        @keyframes blink {
+            0%, 100% { border-color: var(--white); }
+            50% { border-color: transparent; }
+        }
+
+        .typewriter {
+            animation: blink 0.7s infinite;
+        }
+
+        /* ==================== Glassmorphism Card ==================== */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            max-width: 800px;
+            margin: 2rem;
+            animation: floatUp 3s ease-in-out infinite;
+        }
+
+        @keyframes floatUp {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .glass-card h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+
+        .glass-card p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* ==================== Photo Gallery ==================== */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 2rem;
+        }
+
+        .photo-placeholder {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--hot-pink), var(--magenta));
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-placeholder:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 30px var(--white);
+        }
+
+        /* ==================== Reasons List ==================== */
+        .reasons-list {
+            list-style: none;
+            max-width: 800px;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .reason-item {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            opacity: 0;
+            transform: translateX(-50px);
+            border-left: 5px solid var(--white);
+        }
+
+        .reason-item.visible {
+            animation: slideIn 0.6s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ==================== Valentine Question Section ==================== */
+        .valentine-question {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+        }
+
+        .button-container {
+            display: flex;
+            gap: 2rem;
+            position: relative;
+            min-height: 100px;
+        }
+
+        #yesButton {
+            padding: 1.5rem 3rem;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--white), var(--light-pink));
+            color: var(--deep-pink);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #yesButton:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        #noButton {
+            padding: 1.5rem 3rem;
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            border: 2px solid var(--white);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            position: absolute;
+            left: 300px;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #celebrationMessage {
+            display: none;
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            margin-top: 2rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+            animation: bounceIn 1s ease-out;
+        }
+
+        /* ==================== Footer ==================== */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            font-size: 1.5rem;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* ==================== Floating Hearts ==================== */
+        .floating-heart {
+            position: fixed;
+            bottom: -50px;
+            animation: floatHeart 8s linear;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(var(--sway)) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ==================== Falling Petals ==================== */
+        .petal {
+            position: fixed;
+            top: -50px;
+            width: 10px;
+            height: 15px;
+            background: var(--hot-pink);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: fall 10s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* ==================== Canvas for Sparkles ==================== */
+        #sparkleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        #confettiCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10000;
+            display: none;
+        }
+
+        /* ==================== Responsive Design ==================== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .pulsing-heart {
+                font-size: 5rem;
+            }
+
+            .typewriter {
+                font-size: 1rem;
+            }
+
+            .modal-content h1 {
+                font-size: 2.5rem;
+            }
+
+            #beginButton {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+            }
+
+            .glass-card {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .glass-card h2 {
+                font-size: 2rem;
+            }
+
+            .glass-card p {
+                font-size: 1rem;
+            }
+
+            .valentine-question {
+                font-size: 2.5rem;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            #noButton {
+                position: relative;
+                left: 0;
+            }
+
+            .reason-item {
+                font-size: 1rem;
+            }
+
+            .photo-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .pulsing-heart {
+                font-size: 4rem;
+            }
+
+            .modal-content h1 {
+                font-size: 2rem;
+            }
+
+            .valentine-question {
+                font-size: 2rem;
+            }
+
+            #yesButton, #noButton {
+                padding: 1rem 2rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ==================== Section Title Style ==================== */
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+            animation: bounceIn 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Welcome Modal -->
+    <div id="welcomeModal">
+        <div class="modal-content">
+            <h1>I Have Something Special For You 💕</h1>
+            <button id="beginButton">Click to Begin 💖</button>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Sparkle Canvas -->
+    <canvas id="sparkleCanvas"></canvas>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Happy Valentine's Day 💕</h1>
+        <div class="pulsing-heart">❤️</div>
+        <div class="typewriter" id="typewriter"></div>
+    </section>
+
+    <!-- Love Letter Section -->
+    <section>
+        <div class="glass-card">
+            <h2>My Dearest Love 💌</h2>
+            <p>
+                Words cannot express the depth of my feelings for you. You are the sunshine that brightens my darkest days,
+                the gentle breeze that calms my restless soul. Every moment spent with you is a treasure I hold close to my heart.
+                Your smile is my favorite view, your laugh is my favorite sound, and your happiness is my greatest wish.
+                I am so grateful for every second we share together. You are my everything, my forever, my always.
+                Happy Valentine's Day to the love of my life! 💕
+            </p>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section>
+        <h2 class="section-title">Our Memories Together 📸</h2>
+        <div class="photo-gallery">
+            <div class="photo-placeholder">💕</div>
+            <div class="photo-placeholder">💖</div>
+            <div class="photo-placeholder">💗</div>
+            <div class="photo-placeholder">💓</div>
+            <div class="photo-placeholder">💝</div>
+            <div class="photo-placeholder">❤️</div>
+        </div>
+    </section>
+
+    <!-- Reasons I Love You Section -->
+    <section>
+        <h2 class="section-title">Reasons I Love You ✨</h2>
+        <ul class="reasons-list">
+            <li class="reason-item">Your smile lights up my world ✨</li>
+            <li class="reason-item">You make every day an adventure 🌟</li>
+            <li class="reason-item">Your laugh is my favorite sound 🎵</li>
+            <li class="reason-item">You understand me like no one else 💭</li>
+            <li class="reason-item">Your kindness inspires me every day 🌸</li>
+            <li class="reason-item">You make me a better person 🌈</li>
+            <li class="reason-item">Your hugs feel like home 🏠</li>
+            <li class="reason-item">You believe in me when I doubt myself 💪</li>
+            <li class="reason-item">Your love makes life beautiful 🌺</li>
+            <li class="reason-item">You are my best friend and soulmate 💑</li>
+        </ul>
+    </section>
+
+    <!-- Valentine Question Section -->
+    <section>
+        <h2 class="valentine-question">Will You Be My Valentine? 💝</h2>
+        <div class="button-container">
+            <button id="yesButton">Yes! 💖</button>
+            <button id="noButton">No</button>
+        </div>
+        <div id="celebrationMessage">Yay! You made me the happiest! 🥰💕</div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Forever and always, with all my love 💕</p>
+        <p>Happy Valentine's Day! 🌹</p>
+    </footer>
+
+    <script>
+        // ==================== Welcome Modal & Music ====================
+        const modal = document.getElementById('welcomeModal');
+        const beginButton = document.getElementById('beginButton');
+        const bgMusic = document.getElementById('bgMusic');
+
+        beginButton.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            bgMusic.play().catch(e => console.log('Audio play failed:', e));
+            startAnimations();
+        });
+
+        function startAnimations() {
+            typewriterEffect();
+            startFloatingHearts();
+            startFallingPetals();
+            animateReasons();
+        }
+
+        // ==================== Typewriter Effect ====================
+        const typewriterElement = document.getElementById('typewriter');
+        const message = "Every moment with you is a beautiful dream come true... You are my forever and always. Happy Valentine's Day, my love! 💕";
+        let charIndex = 0;
+
+        function typewriterEffect() {
+            if (charIndex < message.length) {
+                typewriterElement.textContent += message.charAt(charIndex);
+                charIndex++;
+                setTimeout(typewriterEffect, 80);
+            }
+        }
+
+        // ==================== Floating Hearts ====================
+        const heartEmojis = ['💕', '💖', '💗', '💓', '💝', '❤️', '🌹'];
+
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+            heart.style.setProperty('--sway', (Math.random() * 100 - 50) + 'px');
+            heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+
+        function startFloatingHearts() {
+            setInterval(createFloatingHeart, 300);
+        }
+
+        // ==================== Falling Petals ====================
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = (Math.random() * 5 + 8) + 's';
+            petal.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(petal);
+
+            setTimeout(() => {
+                petal.remove();
+            }, 15000);
+        }
+
+        function startFallingPetals() {
+            for (let i = 0; i < 20; i++) {
+                createPetal();
+            }
+            setInterval(() => {
+                createPetal();
+            }, 600);
+        }
+
+        // ==================== Sparkle Canvas ====================
+        const sparkleCanvas = document.getElementById('sparkleCanvas');
+        const sparkleCtx = sparkleCanvas.getContext('2d');
+        sparkleCanvas.width = window.innerWidth;
+        sparkleCanvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            sparkleCanvas.width = window.innerWidth;
+            sparkleCanvas.height = window.innerHeight;
+        });
+
+        class Sparkle {
+            constructor() {
+                this.x = Math.random() * sparkleCanvas.width;
+                this.y = Math.random() * sparkleCanvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.opacity = Math.random();
+                this.fadeSpeed = (Math.random() * 0.02 + 0.01) * (Math.random() > 0.5 ? 1 : -1);
+                this.colors = ['#FFFFFF', '#FFB6C1', '#FFD700'];
+                this.color = this.colors[Math.floor(Math.random() * this.colors.length)];
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.opacity += this.fadeSpeed;
+
+                if (this.opacity <= 0 || this.opacity >= 1) {
+                    this.fadeSpeed *= -1;
+                }
+
+                if (this.x < 0 || this.x > sparkleCanvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > sparkleCanvas.height) this.speedY *= -1;
+            }
+
+            draw() {
+                sparkleCtx.save();
+                sparkleCtx.globalAlpha = this.opacity;
+                sparkleCtx.fillStyle = this.color;
+                sparkleCtx.shadowBlur = 10;
+                sparkleCtx.shadowColor = this.color;
+                sparkleCtx.beginPath();
+                sparkleCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                sparkleCtx.fill();
+                sparkleCtx.restore();
+            }
+        }
+
+        const sparkles = [];
+        for (let i = 0; i < 100; i++) {
+            sparkles.push(new Sparkle());
+        }
+
+        function animateSparkles() {
+            sparkleCtx.clearRect(0, 0, sparkleCanvas.width, sparkleCanvas.height);
+            sparkles.forEach(sparkle => {
+                sparkle.update();
+                sparkle.draw();
+            });
+            requestAnimationFrame(animateSparkles);
+        }
+
+        animateSparkles();
+
+        // ==================== Animate Reasons ====================
+        function animateReasons() {
+            const reasons = document.querySelectorAll('.reason-item');
+            reasons.forEach((reason, index) => {
+                setTimeout(() => {
+                    reason.classList.add('visible');
+                }, index * 200);
+            });
+        }
+
+        // ==================== Runaway No Button ====================
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+        const celebrationMessage = document.getElementById('celebrationMessage');
+
+        function moveNoButton() {
+            const maxX = window.innerWidth - noButton.offsetWidth - 100;
+            const maxY = window.innerHeight - noButton.offsetHeight - 100;
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            
+            noButton.style.position = 'fixed';
+            noButton.style.left = newX + 'px';
+            noButton.style.top = newY + 'px';
+        }
+
+        noButton.addEventListener('mouseenter', moveNoButton);
+        noButton.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveNoButton();
+        });
+
+        // ==================== Yes Button & Confetti ====================
+        yesButton.addEventListener('click', () => {
+            celebrationMessage.style.display = 'block';
+            yesButton.style.display = 'none';
+            noButton.style.display = 'none';
+            launchConfetti();
+        });
+
+        // ==================== Confetti Effect ====================
+        const confettiCanvas = document.getElementById('confettiCanvas');
+        const confettiCtx = confettiCanvas.getContext('2d');
+        confettiCanvas.width = window.innerWidth;
+        confettiCanvas.height = window.innerHeight;
+
+        class Confetti {
+            constructor() {
+                this.x = confettiCanvas.width / 2;
+                this.y = confettiCanvas.height / 2;
+                this.size = Math.random() * 10 + 5;
+                this.speedX = (Math.random() - 0.5) * 10;
+                this.speedY = (Math.random() - 0.5) * 10 - 5;
+                this.gravity = 0.3;
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = (Math.random() - 0.5) * 10;
+                this.colors = ['#FF69B4', '#FF1493', '#FF00FF', '#FFD700', '#FF007F', '#FFB6C1'];
+                this.color = this.colors[Math.floor(Math.random() * this.colors.length)];
+                this.shape = Math.random() > 0.5 ? 'heart' : 'circle';
+            }
+
+            update() {
+                this.speedY += this.gravity;
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.rotation += this.rotationSpeed;
+            }
+
+            draw() {
+                confettiCtx.save();
+                confettiCtx.translate(this.x, this.y);
+                confettiCtx.rotate(this.rotation * Math.PI / 180);
+                confettiCtx.fillStyle = this.color;
+
+                if (this.shape === 'heart') {
+                    confettiCtx.font = this.size + 'px Arial';
+                    confettiCtx.fillText('❤️', 0, 0);
+                } else {
+                    confettiCtx.beginPath();
+                    confettiCtx.arc(0, 0, this.size, 0, Math.PI * 2);
+                    confettiCtx.fill();
+                }
+
+                confettiCtx.restore();
+            }
+        }
+
+        function launchConfetti() {
+            confettiCanvas.style.display = 'block';
+            const confettiPieces = [];
+
+            for (let i = 0; i < 200; i++) {
+                confettiPieces.push(new Confetti());
+            }
+
+            function animateConfetti() {
+                confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+                
+                confettiPieces.forEach((piece, index) => {
+                    piece.update();
+                    piece.draw();
+
+                    if (piece.y > confettiCanvas.height + 50) {
+                        confettiPieces.splice(index, 1);
+                    }
+                });
+
+                if (confettiPieces.length > 0) {
+                    requestAnimationFrame(animateConfetti);
+                } else {
+                    confettiCanvas.style.display = 'none';
+                }
+            }
+
+            animateConfetti();
+        }
+
+        // ==================== Scroll Animations ====================
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(50px)';
+            section.style.transition = 'opacity 1s ease, transform 1s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
